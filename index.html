@@ -1,365 +1,301 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bubblebee | Luxury Nature Retreat</title>
-
-<!-- FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-
-<style>
-/* ================== VARIABILI ================== */
-:root{
-  --honey:#d6b36a;
-  --dark:#0a0a0a;
-  --light:#f7f5f0;
-  --glass:rgba(255,255,255,0.08);
-}
-
-/* ================== RESET ================== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-/* ================== BODY ================== */
-body{
-  font-family:'Montserrat',sans-serif;
-  background:radial-gradient(circle at top,#111,#000);
-  color:var(--light);
-  overflow-x:hidden;
-}
-
-/* ================== BUBBLES ================== */
-.bubbles{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
-  overflow:hidden;
-}
-
-.bubble{
-  position:absolute;
-  bottom:-150px;
-  background:rgba(255,255,255,0.08);
-  border-radius:50%;
-  animation:rise linear infinite;
-}
-
-@keyframes rise{
-  0%{transform:translateY(0) scale(.8);opacity:0}
-  20%{opacity:.6}
-  100%{transform:translateY(-120vh) scale(1.1);opacity:0}
-}
-
-/* ================== GENERALI ================== */
-section{
-  padding:90px 7%;
-}
-
-h1,h2,h3{
-  font-family:'Playfair Display',serif;
-  color:var(--honey);
-}
-
-h2{
-  font-size:2.4rem;
-  margin-bottom:40px;
-}
-
-p{line-height:1.7}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:35px;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 38px;
-  background:var(--honey);
-  color:#000;
-  text-decoration:none;
-  border-radius:40px;
-  font-weight:500;
-  transition:.3s;
-}
-
-.btn:hover{transform:scale(1.05)}
-
-/* ================== HERO ================== */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-}
-
-.hero-box{
-  max-width:650px;
-  padding:50px;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border-left:4px solid var(--honey);
-  animation:fadeUp 1.2s ease;
-}
-
-.hero h1{font-size:3.2rem}
-
-/* ================== CARD ================== */
-.card{
-  background:var(--glass);
-  backdrop-filter:blur(16px);
-  border-radius:20px;
-  overflow:hidden;
-  transform:translateY(40px);
-  opacity:0;
-  transition:.8s ease;
-}
-
-.card.visible{
-  transform:translateY(0);
-  opacity:1;
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.card-body{
-  padding:25px;
-}
-
-.calendar{
-  margin-top:15px;
-  padding:12px;
-  background:rgba(0,0,0,.4);
-  border-radius:12px;
-  font-size:.85rem;
-}
-
-/* ================== RECENSIONI ================== */
-.review{
-  background:var(--glass);
-  padding:35px;
-  border-left:3px solid var(--honey);
-  border-radius:15px;
-}
-
-/* ================== FOOTER ================== */
-footer{
-  padding:60px;
-  text-align:center;
-  font-size:.9rem;
-  color:#aaa;
-}
-
-/* ================== ANIMAZIONI ================== */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* ================== RESPONSIVE ================== */
-@media(max-width:768px){
-  h2{font-size:2rem}
-  .hero h1{font-size:2.3rem}
-  section{padding:70px 6%}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BubbleBee - Sant'Eusanio del Sangro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .navbar {
+            background-color: #1a1a1a;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffd700 !important;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1520250491191-b9f865a7ac69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .gallery img {
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .calendar {
+            border: 1px solid #ddd;
+            padding: 20px;
+            background: white;
+        }
+        .product-card {
+            border: none;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .review {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- BUBBLES -->
-<div class="bubbles"></div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">BubbleBee</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#camere">Camere</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bubble">Bubble Room</a></li>
+                <li class="nav-item"><a class="nav-link" href="#eventi">Eventi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#prodotti">Prodotti</a></li>
+                <li class="nav-item"><a class="nav-link" href="#dove">Dove Siamo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#recensioni">Recensioni</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sala">Sala Eventi</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-box">
-    <h1>Bubblebee</h1>
-    <p><strong>Luxury Nature Retreat</strong><br>Sant’Eusanio del Sangro</p>
-    <p>
-      Un rifugio esclusivo tra natura, bolle e silenzio.
-      Il lusso dell’autenticità.
-    </p>
-    <a href="#camere" class="btn">Scopri Bubblebee</a>
-  </div>
+    <div class="hero-content">
+        <h1 class="display-1">Benvenuti a BubbleBee</h1>
+        <p class="lead">Lusso e Natura a Sant'Eusanio del Sangro</p>
+    </div>
 </section>
 
-<!-- CAMERE -->
-<section id="camere">
-<h2>Le Camere</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
-<div class="card-body">
-<h3>Camera Ulivo</h3>
-<p>Eleganza naturale.</p>
-<div class="calendar">📅 Prenota</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-<div class="card-body">
-<h3>Camera Grano</h3>
-<p>Calda e luminosa.</p>
-<div class="calendar">📅 Prenota</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1554995207-c18c203602cb">
-<div class="card-body">
-<h3>Camera Vigna</h3>
-<p>Vista sulla campagna.</p>
-<div class="calendar">📅 Prenota</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1540518614846-7eded433c457">
-<div class="card-body">
-<h3>Camera Bosco</h3>
-<p>Silenzio assoluto.</p>
-<div class="calendar">📅 Prenota</div>
-</div>
-</div>
-
-</div>
+<section id="camere" class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Le Nostre Camere</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Suite Sangro</h3>
+                <img src="https://www.sbid.org/wp-content/uploads//2020/12/Stonehill-Taylor-The-Conrad-New-York-Midtown-4-2-1024x683.jpg" alt="Suite Sangro" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-3">
+                <h3>Suite Maiella</h3>
+                <img src="https://www.decorilla.com/online-decorating/wp-content/uploads/2021/05/Luxury-hotel-interior-design-on-the-water-1.jpeg" alt="Suite Maiella" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-3">
+                <h3>Suite Abruzzo</h3>
+                <img src="https://carrolldesign.co.uk/wp-content/uploads/2023/01/luxury-hotel-bedroom-design.jpg" alt="Suite Abruzzo" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-3">
+                <h3>Suite Adriatic</h3>
+                <img src="https://www.sbid.org/wp-content/uploads/2020/12/Stonehill-Taylor-The-Conrad-New-York-Midtown-1-2.jpg" alt="Suite Adriatic" class="img-fluid mb-3">
+            </div>
+        </div>
+        <div class="calendar mt-5">
+            <h3>Calendario Prenotazioni</h3>
+            <p>Seleziona una data: <input type="date"></p>
+            <button class="btn btn-primary">Prenota</button>
+        </div>
+    </div>
 </section>
 
-<!-- BUBBLE ROOM -->
-<section>
-<h2>Bubble Room</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1623298317883-6b702d3e3d99">
-<div class="card-body">
-<h3>Bubble Honey</h3>
-<p>Dormi sotto le stelle.</p>
-<div class="calendar">📅 Prenota</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-<div class="card-body">
-<h3>Bubble Moon</h3>
-<p>Romantica e immersiva.</p>
-<div class="calendar">📅 Prenota</div>
-</div>
-</div>
-
-</div>
+<section id="bubble" class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Bubble Rooms</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Bubble Stella</h3>
+                <img src="https://images.ctfassets.net/gbvugecziasa/7zCphm9A8R4Ufv73vGeN7Y/894a4a386fa1699b9274248c15bcb045/20181126-_KSE1386.jpg?h=1000&q=80" alt="Bubble Stella" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-6">
+                <h3>Bubble Luna</h3>
+                <img src="https://hypedome.com/wp-content/webp-express/webp-images/uploads/2024/03/stargazing-dome-3.jpeg.webp" alt="Bubble Luna" class="img-fluid mb-3">
+            </div>
+        </div>
+        <div class="calendar mt-5">
+            <h3>Calendario Prenotazioni</h3>
+            <p>Seleziona una data: <input type="date"></p>
+            <button class="btn btn-primary">Prenota</button>
+        </div>
+    </div>
 </section>
 
-<!-- EVENTI -->
-<section>
-<h2>Eventi Bubblebee</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
-<div class="card-body">
-<h3>Ritiri Wellness</h3>
-<p>Yoga, meditazione e natura.</p>
-<a class="btn" href="#">Prenota</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600180758890-6c3c4a33a7b3">
-<div class="card-body">
-<h3>Raccolta Olive & Grano</h3>
-<p>Tradizione e convivialità.</p>
-<a class="btn" href="#">Prenota</a>
-</div>
-</div>
-
-</div>
+<section id="eventi" class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Eventi Organizzati</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Wellness Yoga Retreat - <a href="#">Prenota</a></li>
+            <li class="list-group-item">Raccolta delle Olive - <a href="#">Prenota</a></li>
+            <li class="list-group-item">Raccolta del Grano - <a href="#">Prenota</a></li>
+            <li class="list-group-item">Escursione in Natura - <a href="#">Prenota</a></li>
+        </ul>
+    </div>
 </section>
 
-<!-- PRODOTTI -->
-<section>
-<h2>I Nostri Prodotti</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
-<div class="card-body">
-<h3>Olio EVO</h3>
-<p>€18</p>
-<a class="btn" href="#">Acquista</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1514361892635-eae31b97d6f2">
-<div class="card-body">
-<h3>Vino Biologico</h3>
-<p>€25</p>
-<a class="btn" href="#">Acquista</a>
-</div>
-</div>
-
-</div>
+<section id="prodotti" class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">I Nostri Prodotti</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="product-card card">
+                    <img src="http://www.mrmarcel.com/cdn/shop/files/marella-italian-harvest-organic-rainbow-capricci-pasta-500g.jpg?crop=center&height=630&v=1713293010&width=1200" class="card-img-top" alt="Pasta Arcobaleno">
+                    <div class="card-body">
+                        <h5 class="card-title">Pasta Arcobaleno Organica</h5>
+                        <p class="card-text">Deliziosa pasta fatta con ingredienti naturali.</p>
+                        <a href="#" class="btn btn-primary">Acquista</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="product-card card">
+                    <img src="http://www.mrmarcel.com/cdn/shop/files/marella-bucaneve-mix-organic-pasta-500g.jpg?crop=center&height=630&v=1717175536&width=1200" class="card-img-top" alt="Pasta Bucaneve">
+                    <div class="card-body">
+                        <h5 class="card-title">Pasta Bucaneve Mix</h5>
+                        <p class="card-text">Mix di pasta organica colorata.</p>
+                        <a href="#" class="btn btn-primary">Acquista</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="product-card card">
+                    <img src="https://m.media-amazon.com/images/I/7168yfxMtGL._AC_UF894,1000_QL80_.jpg" class="card-img-top" alt="Salse Organiche">
+                    <div class="card-body">
+                        <h5 class="card-title">Salse Organiche Italiane</h5>
+                        <p class="card-text">Varietà di salse al pomodoro.</p>
+                        <a href="#" class="btn btn-primary">Acquista</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="product-card card">
+                    <img src="http://www.mrmarcel.com/cdn/shop/files/italian-harvest-le-rose-rainbow-organic-pasta-500g.jpg?crop=center&height=630&v=1713290243&width=1200" class="card-img-top" alt="Pasta Le Rose">
+                    <div class="card-body">
+                        <h5 class="card-title">Pasta Le Rose Arcobaleno</h5>
+                        <p class="card-text">Pasta a forma di rose organica.</p>
+                        <a href="#" class="btn btn-primary">Acquista</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="product-card card">
+                    <img src="https://www.ditalia.com/cdn/shop/files/BOTTEGADITALIAPASTASHOOT_2025copy_bcaba245-9228-4992-976b-3019cb009e96.png?v=1758210290&width=1946" class="card-img-top" alt="Ingredienti Pasta">
+                    <div class="card-body">
+                        <h5 class="card-title">Ingredienti per Pasta</h5>
+                        <p class="card-text">Set di ingredienti freschi per pasta fatta in casa.</p>
+                        <a href="#" class="btn btn-primary">Acquista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- RECENSIONI -->
-<section>
-<h2>Cosa Dicono di Noi</h2>
-<div class="grid">
-<div class="review">“Un’esperienza unica.”<br><strong>— Elisa</strong></div>
-<div class="review">“Il vero lusso è la natura.”<br><strong>— Matteo</strong></div>
-</div>
+<section id="dove" class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Dove Siamo e Cose da Fare</h2>
+        <p>Siamo a Sant'Eusanio del Sangro, Abruzzo, Italia.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11880.827921709017!2d14.319999999999999!3d42.166666666666664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330f0b0b0b0b0b0%3A0x0!2sSant%27Eusanio+del+Sangro!5e0!3m2!1sit!2sit!4v1690000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <h3 class="mt-5">Cose da Fare entro 30 Minuti</h3>
+        <ul>
+            <li>Visita alla Casa Museo Cesare De Titta</li>
+            <li>Chiesa della Madonna di Fatima</li>
+            <li>Oasi WWF Riserva Naturale Lago di Serranella</li>
+            <li>Chiesa Parrocchiale di Santa Maria Assunta</li>
+            <li>Gole di San Martino (16 km)</li>
+            <li>Parco della Costa dei Trabocchi (17 km)</li>
+            <li>Spiaggia di Cala Turchino (18 km)</li>
+            <li>Visita a Lanciano o Casoli</li>
+        </ul>
+    </div>
 </section>
 
-<footer>
-© 2026 Bubblebee – Sant’Eusanio del Sangro
+<section id="recensioni" class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Recensioni dei Clienti</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="review">
+                    <p>"Un'esperienza luxury indimenticabile!" - Maria R.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="review">
+                    <p>"Le bubble rooms sono magiche sotto le stelle." - Giovanni B.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="review">
+                    <p>"Prodotti freschi e deliziosi, servizio eccellente." - Anna S.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sala" class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Sala Eventi</h2>
+        <div class="row gallery">
+            <div class="col-md-4">
+                <img src="https://media-api.xogrp.com/images/45a7868c-d171-400c-bc5f-608563c39179~rs_768.h" alt="Sala Eventi 1" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-4">
+                <img src="https://www.tagvenue.com/images/location-pages/1920x1080/2318.jpg" alt="Sala Eventi 2" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-4">
+                <img src="https://www.weddingstylemagazine.com/wp-content/uploads/2023/11/BOCA-BY-DESIGN-OPENER-1600x1067.jpg" alt="Sala Eventi 3" class="img-fluid mb-3">
+            </div>
+        </div>
+        <div class="calendar mt-5">
+            <h3>Calendario Prenotazioni</h3>
+            <p>Seleziona una data: <input type="date"></p>
+            <button class="btn btn-primary">Prenota</button>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <p>&copy; 2026 BubbleBee. Tutti i diritti riservati.</p>
+    </div>
 </footer>
 
-<script>
-/* GENERATORE BOLLE */
-const bubbles=document.querySelector('.bubbles');
-
-for(let i=0;i<30;i++){
-  const bubble=document.createElement('span');
-  bubble.className='bubble';
-
-  const size=Math.random()*80+20;
-  bubble.style.width=size+'px';
-  bubble.style.height=size+'px';
-  bubble.style.left=Math.random()*100+'%';
-  bubble.style.animationDuration=(10+Math.random()*20)+'s';
-  bubble.style.animationDelay=Math.random()*10+'s';
-
-  bubbles.appendChild(bubble);
-}
-
-/* REVEAL ON SCROLL */
-const cards=document.querySelectorAll('.card');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-},{threshold:0.2});
-
-cards.forEach(card=>observer.observe(card));
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
