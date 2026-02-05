@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bubblebee | Luxury Nature Retreat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --honey:#d6b36a;
+  --dark:#0c0c0c;
+  --light:#faf7f2;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--dark);
+  color:var(--light);
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+  color:var(--honey);
+}
+
+section{padding:90px 8%}
+
+.hero{
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1501117716987-c8e1ecb210c4') center/cover;
+  display:flex;
+  align-items:center;
+}
+
+.hero-box{
+  background:rgba(0,0,0,.6);
+  padding:50px;
+  max-width:650px;
+  border-left:5px solid var(--honey);
+}
+
+.hero h1{font-size:3.2rem}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 36px;
+  background:var(--honey);
+  color:#000;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+.card{
+  background:#141414;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.card-body{padding:22px}
+
+.calendar{
+  margin-top:15px;
+  padding:10px;
+  background:#1f1f1f;
+  text-align:center;
+  font-size:.85rem;
+}
+
+.review{
+  background:#141414;
+  padding:30px;
+  border-left:4px solid var(--honey);
+}
+
+footer{
+  background:#000;
+  padding:50px;
+  text-align:center;
+  font-size:.9rem;
+  color:#aaa;
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:2.4rem}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-box">
+    <h1>Bubblebee</h1>
+    <p><strong>Luxury Nature Retreat</strong><br>
+    Sant’Eusanio del Sangro</p>
+    <p>Un rifugio esclusivo dove natura, silenzio e comfort si fondono in un’esperienza autentica.</p>
+    <a href="#camere" class="btn">Vivi Bubblebee</a>
+  </div>
+</div>
+
+<!-- CAMERE -->
+<section id="camere">
+<h2>Le Camere Bubblebee</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+<div class="card-body">
+<h3>Camera Ulivo</h3>
+<p>Linee naturali e comfort raffinato.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+<div class="card-body">
+<h3>Camera Grano</h3>
+<p>Calda, luminosa, essenziale.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1554995207-c18c203602cb">
+<div class="card-body">
+<h3>Camera Vigna</h3>
+<p>Vista sulla campagna abruzzese.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1540518614846-7eded433c457">
+<div class="card-body">
+<h3>Camera Bosco</h3>
+<p>Silenzio e intimità assoluta.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- BUBBLE ROOM -->
+<section>
+<h2>Bubble Room</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1623298317883-6b702d3e3d99">
+<div class="card-body">
+<h3>Bubble Honey</h3>
+<p>Dormire sotto le stelle.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<div class="card-body">
+<h3>Bubble Moon</h3>
+<p>Romantica e immersiva.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- EVENTI -->
+<section>
+<h2>Eventi Bubblebee</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
+<div class="card-body">
+<h3>Ritiri Wellness</h3>
+<p>Yoga, meditazione e natura.</p>
+<a class="btn" href="#">Prenota</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600180758890-6c3c4a33a7b3">
+<div class="card-body">
+<h3>Raccolta Olive & Grano</h3>
+<p>Esperienze contadine autentiche.</p>
+<a class="btn" href="#">Prenota</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- PRODOTTI -->
+<section>
+<h2>I Prodotti Bubblebee</h2>
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
+<div class="card-body">
+<h3>Olio EVO</h3>
+<p>Produzione locale artigianale.</p>
+<p><strong>€18</strong></p>
+<a class="btn" href="#">Acquista</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1514361892635-eae31b97d6f2">
+<div class="card-body">
+<h3>Vino Biologico</h3>
+<p>Dai nostri vigneti.</p>
+<p><strong>€25</strong></p>
+<a class="btn" href="#">Acquista</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- DOVE SIAMO -->
+<section>
+<h2>Dove Siamo</h2>
+<p>
+Bubblebee si trova a <strong>Sant’Eusanio del Sangro</strong>, nel cuore dell’Abruzzo.
+</p>
+<ul>
+<li>🌊 Costa dei Trabocchi – 30 min</li>
+<li>🏔 Parco della Majella – 30 min</li>
+<li>🏛 Lanciano – 20 min</li>
+<li>🍷 Cantine e borghi storici</li>
+</ul>
+</section>
+
+<!-- RECENSIONI -->
+<section>
+<h2>Cosa Dicono di Noi</h2>
+<div class="grid">
+<div class="review">“Un luogo sospeso nel tempo.”<br><strong>— Alessia</strong></div>
+<div class="review">“Bubblebee è un’esperienza, non un soggiorno.”<br><strong>— Davide</strong></div>
+</div>
+</section>
+
+<!-- SALA EVENTI -->
+<section>
+<h2>Sala Eventi Bubblebee</h2>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
+<div class="card-body">
+<p>Spazio elegante per eventi privati, cerimonie e ritiri.</p>
+<div class="calendar">📅 Calendario prenotazioni</div>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Bubblebee – Luxury Nature Retreat<br>
+Sant’Eusanio del Sangro (CH)
+</footer>
+
+</body>
+</html>
