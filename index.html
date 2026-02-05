@@ -5,21 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bubblebee | Luxury Nature Retreat</title>
 
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
+/* ================== VARIABILI ================== */
 :root{
   --honey:#d6b36a;
-  --dark:#0c0c0c;
-  --light:#faf7f2;
+  --dark:#0a0a0a;
+  --light:#f7f5f0;
+  --glass:rgba(255,255,255,0.08);
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+/* ================== RESET ================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
+/* ================== BODY ================== */
 body{
   font-family:'Montserrat',sans-serif;
-  background:var(--dark);
+  background:radial-gradient(circle at top,#111,#000);
   color:var(--light);
+  overflow-x:hidden;
+}
+
+/* ================== BUBBLES ================== */
+.bubbles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.bubble{
+  position:absolute;
+  bottom:-150px;
+  background:rgba(255,255,255,0.08);
+  border-radius:50%;
+  animation:rise linear infinite;
+}
+
+@keyframes rise{
+  0%{transform:translateY(0) scale(.8);opacity:0}
+  20%{opacity:.6}
+  100%{transform:translateY(-120vh) scale(1.1);opacity:0}
+}
+
+/* ================== GENERALI ================== */
+section{
+  padding:90px 7%;
 }
 
 h1,h2,h3{
@@ -27,33 +67,12 @@ h1,h2,h3{
   color:var(--honey);
 }
 
-section{padding:90px 8%}
-
-.hero{
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1501117716987-c8e1ecb210c4') center/cover;
-  display:flex;
-  align-items:center;
+h2{
+  font-size:2.4rem;
+  margin-bottom:40px;
 }
 
-.hero-box{
-  background:rgba(0,0,0,.6);
-  padding:50px;
-  max-width:650px;
-  border-left:5px solid var(--honey);
-}
-
-.hero h1{font-size:3.2rem}
-
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 36px;
-  background:var(--honey);
-  color:#000;
-  text-decoration:none;
-  font-weight:500;
-}
+p{line-height:1.7}
 
 .grid{
   display:grid;
@@ -61,72 +80,132 @@ section{padding:90px 8%}
   gap:35px;
 }
 
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 38px;
+  background:var(--honey);
+  color:#000;
+  text-decoration:none;
+  border-radius:40px;
+  font-weight:500;
+  transition:.3s;
+}
+
+.btn:hover{transform:scale(1.05)}
+
+/* ================== HERO ================== */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+.hero-box{
+  max-width:650px;
+  padding:50px;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border-left:4px solid var(--honey);
+  animation:fadeUp 1.2s ease;
+}
+
+.hero h1{font-size:3.2rem}
+
+/* ================== CARD ================== */
 .card{
-  background:#141414;
-  border-radius:12px;
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+  border-radius:20px;
   overflow:hidden;
+  transform:translateY(40px);
+  opacity:0;
+  transition:.8s ease;
+}
+
+.card.visible{
+  transform:translateY(0);
+  opacity:1;
 }
 
 .card img{
   width:100%;
-  height:230px;
+  height:220px;
   object-fit:cover;
 }
 
-.card-body{padding:22px}
+.card-body{
+  padding:25px;
+}
 
 .calendar{
   margin-top:15px;
-  padding:10px;
-  background:#1f1f1f;
-  text-align:center;
+  padding:12px;
+  background:rgba(0,0,0,.4);
+  border-radius:12px;
   font-size:.85rem;
 }
 
+/* ================== RECENSIONI ================== */
 .review{
-  background:#141414;
-  padding:30px;
-  border-left:4px solid var(--honey);
+  background:var(--glass);
+  padding:35px;
+  border-left:3px solid var(--honey);
+  border-radius:15px;
 }
 
+/* ================== FOOTER ================== */
 footer{
-  background:#000;
-  padding:50px;
+  padding:60px;
   text-align:center;
   font-size:.9rem;
   color:#aaa;
 }
 
+/* ================== ANIMAZIONI ================== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ================== RESPONSIVE ================== */
 @media(max-width:768px){
-  .hero h1{font-size:2.4rem}
+  h2{font-size:2rem}
+  .hero h1{font-size:2.3rem}
+  section{padding:70px 6%}
 }
 </style>
 </head>
 
 <body>
 
+<!-- BUBBLES -->
+<div class="bubbles"></div>
+
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
   <div class="hero-box">
     <h1>Bubblebee</h1>
-    <p><strong>Luxury Nature Retreat</strong><br>
-    Sant’Eusanio del Sangro</p>
-    <p>Un rifugio esclusivo dove natura, silenzio e comfort si fondono in un’esperienza autentica.</p>
-    <a href="#camere" class="btn">Vivi Bubblebee</a>
+    <p><strong>Luxury Nature Retreat</strong><br>Sant’Eusanio del Sangro</p>
+    <p>
+      Un rifugio esclusivo tra natura, bolle e silenzio.
+      Il lusso dell’autenticità.
+    </p>
+    <a href="#camere" class="btn">Scopri Bubblebee</a>
   </div>
-</div>
+</section>
 
 <!-- CAMERE -->
 <section id="camere">
-<h2>Le Camere Bubblebee</h2>
+<h2>Le Camere</h2>
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
 <div class="card-body">
 <h3>Camera Ulivo</h3>
-<p>Linee naturali e comfort raffinato.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
+<p>Eleganza naturale.</p>
+<div class="calendar">📅 Prenota</div>
 </div>
 </div>
 
@@ -134,8 +213,8 @@ footer{
 <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
 <div class="card-body">
 <h3>Camera Grano</h3>
-<p>Calda, luminosa, essenziale.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
+<p>Calda e luminosa.</p>
+<div class="calendar">📅 Prenota</div>
 </div>
 </div>
 
@@ -143,8 +222,8 @@ footer{
 <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb">
 <div class="card-body">
 <h3>Camera Vigna</h3>
-<p>Vista sulla campagna abruzzese.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
+<p>Vista sulla campagna.</p>
+<div class="calendar">📅 Prenota</div>
 </div>
 </div>
 
@@ -152,8 +231,8 @@ footer{
 <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457">
 <div class="card-body">
 <h3>Camera Bosco</h3>
-<p>Silenzio e intimità assoluta.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
+<p>Silenzio assoluto.</p>
+<div class="calendar">📅 Prenota</div>
 </div>
 </div>
 
@@ -169,8 +248,8 @@ footer{
 <img src="https://images.unsplash.com/photo-1623298317883-6b702d3e3d99">
 <div class="card-body">
 <h3>Bubble Honey</h3>
-<p>Dormire sotto le stelle.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
+<p>Dormi sotto le stelle.</p>
+<div class="calendar">📅 Prenota</div>
 </div>
 </div>
 
@@ -179,7 +258,7 @@ footer{
 <div class="card-body">
 <h3>Bubble Moon</h3>
 <p>Romantica e immersiva.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
+<div class="calendar">📅 Prenota</div>
 </div>
 </div>
 
@@ -204,7 +283,7 @@ footer{
 <img src="https://images.unsplash.com/photo-1600180758890-6c3c4a33a7b3">
 <div class="card-body">
 <h3>Raccolta Olive & Grano</h3>
-<p>Esperienze contadine autentiche.</p>
+<p>Tradizione e convivialità.</p>
 <a class="btn" href="#">Prenota</a>
 </div>
 </div>
@@ -214,15 +293,14 @@ footer{
 
 <!-- PRODOTTI -->
 <section>
-<h2>I Prodotti Bubblebee</h2>
+<h2>I Nostri Prodotti</h2>
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2">
 <div class="card-body">
 <h3>Olio EVO</h3>
-<p>Produzione locale artigianale.</p>
-<p><strong>€18</strong></p>
+<p>€18</p>
 <a class="btn" href="#">Acquista</a>
 </div>
 </div>
@@ -231,8 +309,7 @@ footer{
 <img src="https://images.unsplash.com/photo-1514361892635-eae31b97d6f2">
 <div class="card-body">
 <h3>Vino Biologico</h3>
-<p>Dai nostri vigneti.</p>
-<p><strong>€25</strong></p>
+<p>€25</p>
 <a class="btn" href="#">Acquista</a>
 </div>
 </div>
@@ -240,45 +317,49 @@ footer{
 </div>
 </section>
 
-<!-- DOVE SIAMO -->
-<section>
-<h2>Dove Siamo</h2>
-<p>
-Bubblebee si trova a <strong>Sant’Eusanio del Sangro</strong>, nel cuore dell’Abruzzo.
-</p>
-<ul>
-<li>🌊 Costa dei Trabocchi – 30 min</li>
-<li>🏔 Parco della Majella – 30 min</li>
-<li>🏛 Lanciano – 20 min</li>
-<li>🍷 Cantine e borghi storici</li>
-</ul>
-</section>
-
 <!-- RECENSIONI -->
 <section>
 <h2>Cosa Dicono di Noi</h2>
 <div class="grid">
-<div class="review">“Un luogo sospeso nel tempo.”<br><strong>— Alessia</strong></div>
-<div class="review">“Bubblebee è un’esperienza, non un soggiorno.”<br><strong>— Davide</strong></div>
-</div>
-</section>
-
-<!-- SALA EVENTI -->
-<section>
-<h2>Sala Eventi Bubblebee</h2>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
-<div class="card-body">
-<p>Spazio elegante per eventi privati, cerimonie e ritiri.</p>
-<div class="calendar">📅 Calendario prenotazioni</div>
-</div>
+<div class="review">“Un’esperienza unica.”<br><strong>— Elisa</strong></div>
+<div class="review">“Il vero lusso è la natura.”<br><strong>— Matteo</strong></div>
 </div>
 </section>
 
 <footer>
-© 2026 Bubblebee – Luxury Nature Retreat<br>
-Sant’Eusanio del Sangro (CH)
+© 2026 Bubblebee – Sant’Eusanio del Sangro
 </footer>
+
+<script>
+/* GENERATORE BOLLE */
+const bubbles=document.querySelector('.bubbles');
+
+for(let i=0;i<30;i++){
+  const bubble=document.createElement('span');
+  bubble.className='bubble';
+
+  const size=Math.random()*80+20;
+  bubble.style.width=size+'px';
+  bubble.style.height=size+'px';
+  bubble.style.left=Math.random()*100+'%';
+  bubble.style.animationDuration=(10+Math.random()*20)+'s';
+  bubble.style.animationDelay=Math.random()*10+'s';
+
+  bubbles.appendChild(bubble);
+}
+
+/* REVEAL ON SCROLL */
+const cards=document.querySelectorAll('.card');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+
+cards.forEach(card=>observer.observe(card));
+</script>
 
 </body>
 </html>
